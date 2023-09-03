@@ -1,0 +1,139 @@
+<div class="modal-header">
+  <button
+    type="button"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="text-center">{{ title }}</h2>
+        </div>
+      </div>
+    </div>
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="fname">First Name:</label>
+        <input
+          formControlName="fname"
+          placeholder="First Name"
+          name="fname"
+          class="form-control"
+          id="fname"
+          required
+          [ngClass]="{ 'is-invalid': submitted && validForm.fname.errors }"
+        />
+        <div
+          *ngIf="submitted && validForm.fname.errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="validForm.fname.errors.required">
+            User First Name is required
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="lname">Last Name:</label>
+        <input
+          formControlName="lname"
+          placeholder="Last name"
+          name="lname"
+          class="form-control"
+          id="lname"
+          required
+          [ngClass]="{ 'is-invalid': submitted && validForm.lname.errors }"
+        />
+        <div
+          *ngIf="submitted && validForm.lname.errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="validForm.lname.errors.required">
+            User Last Name is required
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address:</label>
+        <input
+          type="email"
+          formControlName="email"
+          placeholder="Email Address"
+          name="email"
+          class="form-control"
+          id="email"
+          required
+          [ngClass]="{ 'is-invalid': submitted && validForm.email.errors }"
+        />
+        <div
+          *ngIf="submitted && validForm.email.errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="validForm.email.errors.required">
+            User Email Address is required
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group d-none">
+        <label for="accountnumber">Account Number:</label>
+        <input
+          type="accountnumber"
+          formControlName="accountnumber"
+          placeholder="accountnumber"
+          name="accountnumber"
+          class="form-control"
+          id="accountnumber"
+        />
+      </div>
+
+      <div class="form-group d-none">
+        <label for="createddate">Created Date:</label>
+        <input
+          type="createddate"
+          formControlName="createddate"
+          placeholder="createddate"
+          name="createddate"
+          class="form-control"
+          id="createddate"
+        />
+      </div>
+
+      <div class="form-group d-none">
+        <label for="picture">Picture:</label>
+        <input
+          type="picture"
+          formControlName="picture"
+          placeholder="picture"
+          name="picture"
+          class="form-control"
+          id="picture"
+        />
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <button class="btn btn-success pull-left col-md-6">Add</button>
+          <button class="btn btn-primary pull-right col-md-6" (click)="back()">
+            Back to List <i class="fa fa-home" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-outline-dark"
+    (click)="activeModal.close('Close click')"
+  >
+    Close
+  </button>
+</div>

@@ -1,0 +1,40 @@
+<section class="h-100">
+  <div class="container h-100">
+    <div class="d-flex align-items-center justify-content-center h-100">
+      <div class="d-flex flex-column">
+        <div class="card">
+          <h2 class="card-header table-title text-center">
+            {{ user?.fname }} {{ user?.lname }}
+          </h2>
+          <div class="card-body">
+            <div class="table-wrapper">
+              <div class="row">
+                <p>
+                  <span class="font-weight-bold">ID: </span>{{ user?.id }}<br />
+                  <span class="font-weight-bold">Email: </span>{{ user?.email
+                  }}<br />
+                  <span class="font-weight-bold">Account Number: </span
+                  >{{ user?.accountnumber }} <br />
+                  <span class="font-weight-bold">Date Created: </span
+                  >{{ user?.createddate }} <br />
+                </p>
+              </div>
+              <div class="row h-100 justify-content-center align-items-center">
+                <img
+                  class="mx-auto"
+                  [src]="user?.picture"
+                  alt="{{ user?.fname }} {{ user?.lname }} Details"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-info col-md-6" (click)="back()">
+              Back to List <i class="fa fa-home" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
